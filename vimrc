@@ -1,10 +1,10 @@
 " ====== "
 " VUNDLE "
 " ====== "
-set nocompatible              " be iMproved, required
+set nocompatible              " VI iMproved, required
 filetype off                  " required
 
-let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/' " Cierto si estamos en windows
+let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/' " Checks if you are in windows
 let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
 let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
 call vundle#rc(expand(vimDir . '/bundle'))
@@ -12,24 +12,24 @@ call vundle#rc(expand(vimDir . '/bundle'))
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" METE AQUÍ TUS PLUGINS:
-"Plugin 'Valloric/YouCompleteMe'         " Autocompletado
-Plugin 'nvie/vim-flake8'                " Validador de código Python
-Plugin 'vim-airline/vim-airline'        " Línea de estado
-Plugin 'vim-airline/vim-airline-themes' " Temas para la línea de estado
-"Plugin 'powerline/powerline'            " Otra línea de estado. No funciona con esta versión de Vim
-Plugin 'majutsushi/tagbar'              " Panel con los símbolos y funciones
-"Plugin 'mhinz/vim-signify'             " Mostrar cambios para diversos SCM
-Plugin 'airblade/vim-gitgutter'         " Mostrar cambios para GIT
-Plugin 'jmcantrell/vim-virtualenv'      " Mostrar el virtualenv del fichero Python
-Plugin 'tomtom/quickfixsigns_vim'       " Muestra en el gutter caracteres en las líneas con errores o warnings
-Plugin 'scrooloose/syntastic'           " Chequeo de sintaxis
-Plugin 'scrooloose/nerdtree'            " Nerdtree, navegador de ficheros en árbol
-Plugin 'weynhamz/vim-plugin-minibufexpl' " Control de buffers
-Plugin 'terminus'                       " Mejoras para la terminal de linux
-Plugin 'scrooloose/nerdcommenter'       " Comentar y descomentar bloques de código
-Plugin 'flazz/vim-colorschemes'         " Esquemas de color
-Plugin 'edkolev/tmuxline.vim'           " Sincronización de colores con tmux powerline
+" PUT HERE YOUR PLUGINS:
+"Plugin 'Valloric/YouCompleteMe'         " Code autocomplete
+Plugin 'nvie/vim-flake8'                " Python code validator
+Plugin 'vim-airline/vim-airline'        " Status line
+Plugin 'vim-airline/vim-airline-themes' " Themes for status line
+"Plugin 'powerline/powerline'            " Another status line
+Plugin 'majutsushi/tagbar'              " Panel with symbols and functions
+"Plugin 'mhinz/vim-signify'             " Show changes in several SCM
+Plugin 'airblade/vim-gitgutter'         " Show changes in a GIT repository
+Plugin 'jmcantrell/vim-virtualenv'      " Show Python's active virtualenv
+Plugin 'tomtom/quickfixsigns_vim'       " Shows errors and warnings in the gutter
+Plugin 'scrooloose/syntastic'           " Syntax checker
+Plugin 'scrooloose/nerdtree'            " Nerdtree, file navigator
+Plugin 'weynhamz/vim-plugin-minibufexpl' " Vim buffers control
+Plugin 'terminus'                       " Linux terminal improved
+Plugin 'scrooloose/nerdcommenter'       " Comment helper
+Plugin 'flazz/vim-colorschemes'         " Color schemes
+Plugin 'edkolev/tmuxline.vim'           " Color synchronization with tmux
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,18 +47,17 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-" ----------------------"
-" CONFIGURACION PLUGINS "
-" --------------------- "
+" --------------------"
+" PLUGIN CONFIGURATION "
+" -------------------- "
 
-" ········"
+" ······· "
 " Airline "
-" ········"
+" ······· "
 let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set encoding=utf-8
-
 
 " ········ "
 " Powerbar "
@@ -81,7 +80,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Opciones para que chequee al arrancar. Ralentizan mucho la carga de ficheros
+" Options to check on loading. Very slow.
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
@@ -94,9 +93,9 @@ set nocompatible
 set hidden
 
 
-" ============== "
-" CONFIG WINDOWS "
-" ============== "
+" ========== "
+" MS WINDOWS "
+" ========== "
 
 "set nocompatible
 "source $VIMRUNTIME/vimrc_example.vim
@@ -150,30 +149,30 @@ else
 endif
 
 
-" ============ "
-" MIS AÑADIDOS "
-" ============ "
-" Plugins y detección de sintaxis
+" ========= "
+" MY CONFIG "
+" ========= "
+" Syntax highlighting
 filetype plugin indent on
 
-" Comportamiento de la interfaz
-set backspace=indent,eol,start whichwrap+=<,>,[,] " Permite borrar final de línea
+" GUI config
+set backspace=indent,eol,start whichwrap+=<,>,[,] " Allow to delete end of line
 set wildmode=longest,list " Pressing <Tab> shows command suggestions similar to pressing <Tab> in bash
-set mouse=a " Uso del ratón
-set t_Co=256 " 256 colores
+set mouse=a " Mouse
+set t_Co=256 " 256 colores (it term supports it)
 
-" Barra de estado
-set number " Número de línea
-set ruler " Muestra la posicion actual
-set showcmd " Muestra el modo actual
+" Status bar
+set number " Line number
+set ruler " Actual cursor location
+set showcmd " Actual vim mode
 
-" Tabuladores
+" Tabs and spaces
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
 set autoindent
-set list listchars=tab:→\ ,trail:~,eol:¬,extends:>,precedes:< "Mostrar espacios y tabuladores
+set list listchars=tab:→\ ,trail:~,eol:¬,extends:>,precedes:< "Shows spaces and tabs
 
 " Búsqueda
 set showmatch
@@ -182,20 +181,20 @@ set incsearch
 set ignorecase
 
 " Backups
-set nobackup " No hace backups
-set noswapfile " No usa ficheros swp
+set nobackup " Don't make backups
+set noswapfile " Don's use swp temporal files
 
-" Coloreado de sintaxis
+" Syntax highlightning active
 syntax on
 
-" ----------------- "
-" ATAJOS DE TECLADO "
-" ----------------- "
+" ------------- "
+" KEY SHORTCUTS "
+" ------------- "
 
-" Se usará la coma como prefijo para muchos comandos
+" Comma as command prefix (used by several plugins)
 :let mapleader = ","
 
-" Tecla para mostrar Tagbar
+" F8 shows tagbar
 nmap <F8> :TagbarToggle<CR>
 
 " backspace in Visual mode deletes selection
@@ -246,13 +245,11 @@ inoremap <C-F4> <C-O><C-W>c
 cnoremap <C-F4> <C-C><C-W>c
 onoremap <C-F4> <C-C><C-W>c
 
-" Alterna entre tema con fondo claro u oscuro
-map <F11> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-
-" Ejecuta el fichero actual
+" Execute current buffer
 nnoremap <F5> :!%:p<Enter><Enter>
 nnoremap <leader>r :!%:p<Enter><Enter>
 
-" Ejecuta en Python
+" Execute in Python
 nnoremap <S-F5> :!python %:p<Enter><Enter>
 nnoremap <leader>p :!python %:p<Enter><Enter>
+
