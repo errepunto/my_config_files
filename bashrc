@@ -29,12 +29,25 @@ stty ixoff -ixon
 
 # Default text editor
 export EDITOR=vim
+export VISUAL=vim
 
 # X destktop. You can select your favourite (KDE, GNOME, MATE, etc)
 export DESKTOP_SESSION=LXDE
+export DE="lxde"
 
 # Mail dir
-MAIL='~/Maildir'
+export MAIL='~/Maildir'
+
+# 256 color term
+export TERM=xterm-256color
+
+# Web browser
+if [ -n "$DISPLAY" ]; then
+    export BROWSER=firefox
+else
+    export BROWSER=links
+fi
+
 
 
 #########
