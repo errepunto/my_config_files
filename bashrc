@@ -80,6 +80,8 @@ alias screen='screen -Rd'
 
 # tmux connects to default session
 alias tmuxdef='tmux -2 attach -t default'
+# tmux fast kill of default session
+alias tmuxkill='tmux kill-session -t default'
 
 ##########
 # PROMPT #

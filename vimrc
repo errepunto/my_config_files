@@ -92,6 +92,10 @@ set statusline+=%*
 set nocompatible
 set hidden
 
+" ········ "
+" tmuxline "
+" ········ "
+let g:tmuxline_preset = 'tmux'
 
 " ========== "
 " MS WINDOWS "
