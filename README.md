@@ -12,6 +12,7 @@ Simply clone the repository and make links to the files inside. For example, if 
 ln -s ~/my_config_files/screenrc ~/.screenrc
 ln -s ~/my_config_files/vimrc ~/.vimrc
 ln -s ~/my_config_files/bashrc ~/.bashrc
+ln -s ~/my_config_files/tmux.conf ~/.tmux.conf
 ```
 
 Please, keep in mind that the dot prefix is ommited in filenames, but you must add it in the linked file.

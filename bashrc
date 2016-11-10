@@ -78,6 +78,9 @@ alias chgrp='chgrp --preserve-root'
 # Screen connects to the last active session
 alias screen='screen -Rd'
 
+# tmux connects to default session
+alias tmuxdef='tmux -2 attach -t default'
+
 ##########
 # PROMPT #
 ##########

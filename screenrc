@@ -26,14 +26,13 @@ zombie "^["
 defscrollback 5000
 
 # allow to use console's buffer scrollback
-termcapinfo xterm|xterms|xs|rxvt|konsole ti@:te@
+termcapinfo xterm* ti@:te@
 
 # advertise hardstatus support to $TERMCAP
 # termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
 
-# use mouse to scroll and change screens
+# use mouse to scroll and change screens. Doesn't work very well with PuTTY
 #defmousetrack on
-#mousetrack on
 
 ##############
 # Status bar #
