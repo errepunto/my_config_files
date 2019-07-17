@@ -106,7 +106,7 @@ screen -t 'local2' 2
 screen -t 'aux'    3
 screen -t 'remote' 4 
 screen -t 'htop'   5 htop
-screen -t 'log'    6 sudo journalctl -f
+#screen -t 'log'    6 sudo journalctl -f
 
 # default screen is "local1"
 select 1

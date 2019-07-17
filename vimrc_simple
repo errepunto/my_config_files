@@ -1,0 +1,104 @@
+
+" ========= "
+" MY CONFIG "
+" ========= "
+" Syntax highlighting
+filetype plugin indent on
+
+" GUI config
+set backspace=indent,eol,start whichwrap+=<,>,[,] " Allow to delete end of line
+set wildmode=longest,list " Pressing <Tab> shows command suggestions similar to pressing <Tab> in bash
+set mouse=a " Mouse
+set t_Co=256 " 256 colores (it term supports it)
+
+" Status bar
+set number " Line number
+set ruler " Actual cursor location
+set showcmd " Actual vim mode
+
+" Tabs and spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
+
+" Búsqueda
+set showmatch
+set hlsearch
+set incsearch
+set ignorecase
+
+" Backups
+set nobackup " Don't make backups
+set noswapfile " Don's use swp temporal files
+
+" Syntax highlightning active
+syntax on
+
+" ------------- "
+" KEY SHORTCUTS "
+" ------------- "
+
+" Comma as command prefix (used by several plugins)
+:let mapleader = ","
+
+" F8 shows tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" backspace in Visual mode deletes selection
+vnoremap <BS> d
+
+" CTRL-X and SHIFT-Del are Cut
+vnoremap <C-X> "+x
+vnoremap <S-Del> "+x
+
+" CTRL-C and CTRL-Insert are Copy
+vnoremap <C-C> "+y
+vnoremap <C-Insert> "+y
+
+" Use CTRL-S for saving, also in Insert mode
+noremap <C-S>   :update<CR>
+vnoremap <C-S>  <C-C>:update<CR>
+inoremap <C-S>  <C-O>:update<CR>
+
+" CTRL-Z is Undo; not in cmdline though
+noremap <C-Z> u
+inoremap <C-Z> <C-O>u
+
+" CTRL-Y is Redo (although not repeat); not in cmdline though
+noremap <C-Y> <C-R>
+inoremap <C-Y> <C-O><C-R>
+
+" CTRL-SHIFT-Z is Redo (although not repeat); not in cmdline though
+noremap <C-S-Z> <C-R>
+inoremap <C-S-Z> <C-O><C-R>
+
+" CTRL-A is Select all
+noremap <C-A> gggH<C-O>G
+inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-A> <C-C>gggH<C-O>G
+onoremap <C-A> <C-C>gggH<C-O>G
+snoremap <C-A> <C-C>gggH<C-O>G
+xnoremap <C-A> <C-C>ggVG
+
+" CTRL-Tab is Next window
+noremap <C-Tab> <C-W>w
+inoremap <C-Tab> <C-O><C-W>w
+cnoremap <C-Tab> <C-C><C-W>w
+onoremap <C-Tab> <C-C><C-W>w
+
+" CTRL-F4 is Close window
+noremap <C-F4> <C-W>c
+inoremap <C-F4> <C-O><C-W>c
+cnoremap <C-F4> <C-C><C-W>c
+onoremap <C-F4> <C-C><C-W>c
+
+" Execute current buffer
+nnoremap <F5> :!%:p<Enter><Enter>
+nnoremap <leader>r :!%:p<Enter><Enter>
+
+" Execute in Python
+nnoremap <S-F5> :!python %:p<Enter><Enter>
+nnoremap <leader>p :!python %:p<Enter><Enter>
+
